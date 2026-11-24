@@ -16,6 +16,7 @@ MAX_ENTRY_CHARS = 140
 def main():
     text = ENTRY
     assert 1 <= len(text) <= MAX_ENTRY_CHARS, "entry out of gate range"
+    assert text.strip(), "entry must not be whitespace-only"
     assert "\n" not in text, "entry must be a single line"
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
